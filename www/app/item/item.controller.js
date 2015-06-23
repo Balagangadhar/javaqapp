@@ -64,7 +64,7 @@ angular.module('myapp').controller('ItemCtrl', function($scope,ItemService,Utili
 		//   }, function(err) {
 		//       console.log('error')
 		//   });
-		 window.plugins.socialsharing.share("Shared via JavaQApp...", $scope.item.question+"\n\n"+$scope.item.answer, "", "");
+		 window.plugins.socialsharing.share($scope.item.question+"\n\n"+$scope.item.answer+"\nShared via JavaQApp...","", "", "");
 }
 
 });
