@@ -1,4 +1,4 @@
-angular.module('myapp').service('ItemService', function(){
+angular.module('myapp').service('ItemService', function($q){
 	console.log('ItemService initialized');	
 	this.initialize = function(){
 		this.items = [ {
@@ -44,7 +44,7 @@ angular.module('myapp').service('ItemService', function(){
 		},{
 			id : "6",
 			question : 'What Is a Package?',
-			answer : 'A package is a namespace for organizing classes and interfaces in a logical manner. Placing your code into packages makes large software projects easier to manage. This section explains why this is useful, and introduces you to the Application Programming Interface (API) provided by the Java platform.',
+			answer : 'A package is a namespace for organizing classes and interfaces in a logical manner. Placing your code into packages makes large software projects easier to manage. This section explains why this is useful, and introduces you to the Application Programming Interface (API) provided by the Java platform.A package is a namespace for organizing classes and interfaces in a logical manner. Placing your code into packages makes large software projects easier to manage. This section explains why this is useful, and introduces you to the Application Programming Interface (API) provided by the Java platform.A package is a namespace for organizing classes and interfaces in a logical manner. Placing your code into packages makes large software projects easier to manage. This section explains why this is useful, and introduces you to the Application Programming Interface (API) provided by the Java platform.',
 			tags : [{'tag':'Oops'}],
 			versions : [{'version' : 'Java-1.6'},{'version': 'Java-1.7'}],
 			level : 'basic',

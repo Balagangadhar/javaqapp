@@ -19,4 +19,9 @@ angular.module('myapp').controller('HomeCtrl', function($scope,ItemService,$loca
 		return item.learningStatus === false ? "ion-ios-book-outline" : "ion-android-done-all";
 	};
 
+	$scope.getItemsByName = function(str){
+		console.log('str',str)
+		return ItemService.getItems();
+	}
+
 });

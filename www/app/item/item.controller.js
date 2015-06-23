@@ -56,8 +56,15 @@ angular.module('myapp').controller('ItemCtrl', function($scope,ItemService,Utili
 	}
 
 	$scope.shareSocially = function(){
-		$cordovaSocialSharing.share($scope.item.question, $scope.item.answer+"<br/>Shared via QAPP...", "", "");
-	}
-
+		// $cordovaSocialSharing.share($scope.item.question, $scope.item.answer+"<br/>Shared via QAPP...", "", "");
+		// $cordovaSocialSharing
+		// .share('something', 'subject', null, null)
+		//     .then(function(result) {
+		//      	console.log('success')
+		//   }, function(err) {
+		//       console.log('error')
+		//   });
+		 window.plugins.socialsharing.share("Shared via JavaQApp...", $scope.item.question+"\n\n"+$scope.item.answer, "", "");
+}
 
 });

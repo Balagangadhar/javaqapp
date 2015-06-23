@@ -1,28 +1,20 @@
-<ion-header-bar class="bar-balanced">
-<button class="button button-clear ion-chevron-left" ng-click="openPreviousItem()"></button>
-<div class="h1 title" ng-click="gotoHome()">QA <span class="badge badge-assertive">{{getLearningStatusMsg()}}</span></div>
-<button class="button button-clear ion-chevron-right" ng-click="openNextItem()"></button>
-
+<div on-swipe-left="openNextItem()" on-swipe-right="openPreviousItem()">
+	<ion-header-bar class="bar-balanced">
+	<button class="button button-clear ion-chevron-left" ng-click="openPreviousItem()"></button>
+	<div class="h1 title" ng-click="gotoHome()">JavaQApp <span class="badge badge-assertive">{{getLearningStatusMsg()}}</span></div>
+	<button class="button button-clear ion-chevron-right" ng-click="openNextItem()"></button>
 </ion-header-bar>
 <div class="item item-divider"> </div>
+<br/>
+<div class="item item-icon-left item-icon-right">
+	<i class="icon ion-help-circled"></i>
+	<h2>{{item.id}}. {{item.question}} </h2>
+	<i class={{getLearningStatusIcon()}}></i>
+</div>
+
 <ion-content>
-<ion-scroll direction="y">
-
 <div class="list card">
-	<div class="item item-icon-left item-icon-right">
-		<i class="icon ion-help-circled"></i>
-		<h2>{{item.id}}. {{item.question}} </h2>
-		<i class={{getLearningStatusIcon()}}></i>
-		<!-- <label class="icon checkbox">
-			<input type="checkbox">
-		</label> -->
-		
-		<!-- <label class="icon checkbox" ng-click='updateLearningStatus($event)'>
-		    <input type="checkbox" ng-checked="value2">
-		</label> -->
-
-	</div>
-
+	<div class="item item-divider"> </div>
 	<div class="item item-body ">
 		<p>
 			Tags : <a href="#" class="subdued">{{getTagsAsString()}}</a><br/>
@@ -32,28 +24,20 @@
 		<i class="icon ion-ios-lightbulb-outline"></i>
 		{{item.answer}}
 	</div>
-
-</div>	
-
-</ion-scroll>
+</div>		
+<br/>
 </ion-content>
 
 <div class="bar bar-footer">
 	<div class="item tabs tabs-secondary tabs-icon-left">
-
-		<!-- <a class="tab-item" ng-click="{{updateLearningStatus()}}">
-			<i class="icon {{getLearningStatusIcon()}}"></i>
-			{{getLearningStatusBtnText($event)}}
-		</a> -->
 		<ion-checkbox class="icon checkbox-balanced" ng-checked="{{item.learningStatus}}" ng-click='toggleLearningStatus($event)'>
-		<a class="tab-item">
-			Learned
-		</a>
+		<a class="tab-item">Learned</a>
 	</ion-checkbox>
 
 	<a class="tab-item" ng-click='shareSocially()'>
 		<i class="icon ion-share"></i>
 		Share
 	</a>
+</div>
 </div>
 </div>
