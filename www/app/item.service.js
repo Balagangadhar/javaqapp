@@ -1,7 +1,7 @@
 angular.module('myapp').service('ItemService', function($q){
 	console.log('ItemService initialized');	
 	this.initialize = function(){
-		this.items = [ {
+		this._items = [ {
 			id : "1",
 			question : 'What is inheritance?',
 			answer : 'Different kinds of objects often have a certain amount in common with each other. Mountain bikes, road bikes, and tandem bikes, for example, all share the characteristics of bicycles (current speed, current pedal cadence, current gear). Yet each also defines additional features that make them different: tandem bicycles have two seats and two sets of handlebars; road bikes have drop handlebars; some mountain bikes have an additional chain ring, giving them a lower gear ratio....',
@@ -66,15 +66,15 @@ angular.module('myapp').service('ItemService', function($q){
 			level : 'advanced',
 			learningStatus : false
 		}];
+		this.items = this._items; 
 		this.currentPosition = 0;
-		this.total = this.items.length;
-		var result = 0;
+		this.total = this._items.length;
+		this.learned = 0;
 		for (var i=0; i < this.items.length; i++) {
-			if (this.items[i].learningStatus === true) {
-				result++;
+			if (this._items[i].learningStatus === true) {
+				this.learned++;
 			}
 		}
-		this.learned = result;
 	};
 
 	this.getLearningStatusMsg = function(){
@@ -138,6 +138,14 @@ angular.module('myapp').service('ItemService', function($q){
 	this.resetCurrentPosition = function(){
 		this.currentPosition = 0;
 	}
-
+	this.getItemsBySearchString = function(searchString){
+		var result = [];
+		var searchString = searchString.toLowerCase();
+		angular.forEach(this._items, function(item) {
+			if( item.question.toLowerCase().indexOf(searchString) >= 0 | item.answer.toLowerCase().indexOf(searchString) >=0 |item.level.toLowerCase().indexOf(searchString) >=0) result.push(item);
+		});
+		this.items = result;
+		return result;
+	}
 	this.initialize();
 });

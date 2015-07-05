@@ -1,5 +1,7 @@
-angular.module('myapp').controller('HomeCtrl', function($scope,ItemService,$location) {
+angular.module('myapp').controller('HomeCtrl', function($scope,ItemService,$location,$ionicSideMenuDelegate) {
 
+	$scope.appLevel = 'levelAll';
+	$scope.appLearningStatus = 'statusAll'; 
 	$scope.items = ItemService.getItems();
 
 	$scope.getLearningStatusMsg = function(){
@@ -19,9 +21,15 @@ angular.module('myapp').controller('HomeCtrl', function($scope,ItemService,$loca
 		return item.learningStatus === false ? "ion-ios-book-outline" : "ion-android-done-all";
 	};
 
-	$scope.getItemsByName = function(str){
-		console.log('str',str)
-		return ItemService.getItems();
-	}
+	$scope.getItemsBySearchString = function(str){
+		$scope.items = ItemService.getItemsBySearchString(str);
 
+	}
+	$scope.clearSearch = function(){
+		$scope.search.value = '';
+		$scope.getItemsBySearchString('');
+	}
+ $scope.openMenu = function () {
+    // $ionicSideMenuDelegate.toggleLeft();
+  }
 });

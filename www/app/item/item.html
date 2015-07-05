@@ -1,8 +1,8 @@
 <div on-swipe-left="openNextItem()" on-swipe-right="openPreviousItem()">
 	<ion-header-bar class="bar-balanced">
-	<button class="button button-clear ion-chevron-left" ng-click="openPreviousItem()"></button>
-	<div class="h1 title" ng-click="gotoHome()">JavaQApp <span class="badge badge-assertive">{{getLearningStatusMsg()}}</span></div>
-	<button class="button button-clear ion-chevron-right" ng-click="openNextItem()"></button>
+	<button class="button icon-left button-clear ion-ios-arrow-left" ng-click="openPreviousItem()">Prev</button>
+	<div class="h1 title" ng-click="gotoHome()">Home <span class="badge badge-assertive">{{getLearningStatusMsg()}}</span></div>
+	<button class="button icon-right button-clear ion-ios-arrow-right" ng-click="openNextItem()">Next</button>
 </ion-header-bar>
 <div class="item item-divider"> </div>
 <br/>
